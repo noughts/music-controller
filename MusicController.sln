@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{E8F032A1-B5E5-2125-7863-7AB2DDF96F73}") = "MusicController", "Assembly-CSharp.csproj", "{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

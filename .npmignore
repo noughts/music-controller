@@ -1,0 +1,5 @@
+ProjectSettings/
+*.sln
+*.userprefs
+*.csproj
+Assets/example/
