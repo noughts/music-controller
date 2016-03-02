@@ -9,7 +9,13 @@ public class MusicController : MonoBehaviour {
 	public readonly UnityEvent onBeatChangedEvent = new UnityEvent();// ビートが変わったタイミングのイベント
 	public readonly UnityEvent onMiddleOfBeatEvent = new UnityEvent();// ビートの中心に来たタイミングのイベント
 
+	[Tooltip("音楽のテンポを調べて入力してください")]
 	public int tempo = 120;
+
+	[Tooltip("AudioSource.timeを使うのが正確そうだが、エディタ上でステップ実行する際に進まないので、デバッグ用にタイマーを使ったモードに変更します。")]
+	public bool useSystemTimer = false;
+
+
 	float _prevFramePositionAtBeat;// 前のフレームの、ビート内での位置パーセンテージ 0.0~1.0
 	float _secOfBeat;
 	float _currentPositionAtBeat;
@@ -17,10 +23,12 @@ public class MusicController : MonoBehaviour {
 
 	private int _beatCount;
 	public int beatCount { get { return _beatCount; } }
+	private float startTime;
 
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource>();
+		startTime = Time.time;
 		_beatCount = 0;
 		_secOfBeat = 60f / tempo;
 		_prevFramePositionAtBeat = 9999;// スタート直後にonBeatChangedEventが発生するように設定
@@ -29,7 +37,8 @@ public class MusicController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		_currentPositionAtBeat = (currentTime () % _secOfBeat) / _secOfBeat;
+		print (getCurrentTime());
+		_currentPositionAtBeat = (getCurrentTime () % _secOfBeat) / _secOfBeat;
 
 		// ビートが変わった判定
 		if( _currentPositionAtBeat < _prevFramePositionAtBeat ){
@@ -94,7 +103,12 @@ public class MusicController : MonoBehaviour {
 		return _currentPositionAtBeat;
 	}
 
-	public float currentTime(){
-		return audioSource.time;
+	public float getCurrentTime(){
+		if( useSystemTimer ){
+			return Time.time - startTime;
+		} else {
+			return audioSource.time;
+		}
+
 	}
 }
