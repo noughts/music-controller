@@ -37,7 +37,6 @@ public class MusicController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		print (getCurrentTime());
 		_currentPositionAtBeat = (getCurrentTime () % _secOfBeat) / _secOfBeat;
 
 		// ビートが変わった判定
