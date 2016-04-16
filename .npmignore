@@ -3,3 +3,5 @@ ProjectSettings/
 *.userprefs
 *.csproj
 Assets/example/
+Assets/node_modules/
+Assets/package.json
