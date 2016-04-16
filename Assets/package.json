@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"low-latency-audio-source": "noughts/low-latency-audio-source"
+	}
+}
