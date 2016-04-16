@@ -1,10 +1,6 @@
 {
 	"name": "music-controller",
 	"version": "1.0.0",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/noughts/music-controller.git"
-	},
 	"dependencies": {
 		"low-latency-audio-source": "noughts/low-latency-audio-source"
 	}
