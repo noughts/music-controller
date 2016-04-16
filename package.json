@@ -1,5 +1,4 @@
 {
-	"name": "music-controller",
 	"version": "1.0.0",
 	"dependencies": {
 		"low-latency-audio-source": "noughts/low-latency-audio-source"
