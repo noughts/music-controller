@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(LowLatencyAudioSource))]
 public class MusicController : MonoBehaviour {
 
 	public readonly UnityEvent onBeatChangedEvent = new UnityEvent();// ビートが変わったタイミングのイベント
@@ -19,7 +19,7 @@ public class MusicController : MonoBehaviour {
 	float _prevFramePositionAtBeat;// 前のフレームの、ビート内での位置パーセンテージ 0.0~1.0
 	float _secOfBeat;
 	float _currentPositionAtBeat;
-	AudioSource audioSource;
+	LowLatencyAudioSource audioSource;
 
 	private int _beatCount;
 	public int beatCount { get { return _beatCount; } }
@@ -27,7 +27,7 @@ public class MusicController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audioSource = GetComponent<AudioSource>();
+		audioSource = GetComponent<LowLatencyAudioSource>();
 		startTime = Time.time;
 		_beatCount = 0;
 		_secOfBeat = 60f / tempo;
