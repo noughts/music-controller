@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(LowLatencyAudioSource))]
 public class MusicController : MonoBehaviour {
 
 	public readonly UnityEvent onBeatChangedEvent = new UnityEvent();// ビートが変わったタイミングのイベント
@@ -19,7 +19,7 @@ public class MusicController : MonoBehaviour {
 	float _prevFramePositionAtBeat;// 前のフレームの、ビート内での位置パーセンテージ 0.0~1.0
 	float _secOfBeat;
 	float _currentPositionAtBeat;
-	AudioSource audioSource;
+	LowLatencyAudioSource audioSource;
 
 	private int _beatCount;
 	public int beatCount { get { return _beatCount; } }
@@ -27,20 +27,21 @@ public class MusicController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audioSource = GetComponent<AudioSource>();
-		startTime = Time.time;
-		_beatCount = 0;
-		_secOfBeat = 60f / tempo;
-		_prevFramePositionAtBeat = 9999;// スタート直後にonBeatChangedEventが発生するように設定
+		audioSource = GetComponent<LowLatencyAudioSource>();
 	}
 
 
 	// Update is called once per frame
 	void Update () {
+		if( audioSource.isPlaying == false ){
+			return;
+		}
 		_currentPositionAtBeat = (getCurrentTime () % _secOfBeat) / _secOfBeat;
 
 		// ビートが変わった判定
+		print (_prevFramePositionAtBeat + " => " + _currentPositionAtBeat);
 		if( _currentPositionAtBeat < _prevFramePositionAtBeat ){
+			print ("beat changed!!!!!!");
 			_beatCount++;
 			onBeatChangedEvent.Invoke ();
 		}
@@ -54,7 +55,15 @@ public class MusicController : MonoBehaviour {
 	}
 
 
-	// ----------------------------- public ------------------------------
+	#region Public
+
+	public void play(){
+		startTime = Time.time;
+		_beatCount = 0;
+		_secOfBeat = 60f / tempo;
+		_prevFramePositionAtBeat = 9999;// スタート直後にonBeatChangedEventが発生するように設定
+		audioSource.Play ();
+	}
 
 	/// 1beatの長さを秒で返す
 	public float getDurationOf1BeatInSeconds(){
@@ -110,4 +119,6 @@ public class MusicController : MonoBehaviour {
 		}
 
 	}
+
+	#endregion
 }

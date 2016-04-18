@@ -16,6 +16,6 @@ public class MainController : MonoBehaviour {
 	}
 
 	public void onStartButtonTap(){
-		musicController.gameObject.SetActive (true);
+		musicController.play ();
 	}
 }
