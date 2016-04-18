@@ -397,8 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e210a99a408d14f5abf11aba5c6cc0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempo: 146
-  useSystemTimer: 0
+  tempo: 130
+  useSystemTimer: 1
 --- !u!114 &1176798047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loop: 1
   playOnAwake: 0
-  clip: {fileID: 8300000, guid: 9134ef6f67f8941cd9e89996bfc555bd, type: 3}
+  clip: {fileID: 8300000, guid: 494520878d7844d8d9f5200fcbae7706, type: 3}
 --- !u!4 &1176798048
 Transform:
   m_ObjectHideFlags: 0
