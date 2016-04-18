@@ -51,9 +51,9 @@ public class MusicController : MonoBehaviour {
 		_currentPositionAtBeat = (getCurrentTime () % _secOfBeat) / _secOfBeat;
 
 		// ビートが変わった判定
-		print (_prevFramePositionAtBeat + " => " + _currentPositionAtBeat);
+//		print (_prevFramePositionAtBeat + " => " + _currentPositionAtBeat);
 		if( _currentPositionAtBeat < _prevFramePositionAtBeat ){
-			print ("beat changed!!!!!!");
+//			print ("beat changed!!!!!!");
 			_beatCount++;
 			onBeatChangedEvent.Invoke ();
 		}
@@ -70,7 +70,7 @@ public class MusicController : MonoBehaviour {
 	#region Public
 
 	public void stop(){
-		
+		audioSource.Stop ();
 	}
 
 	public void play(){
