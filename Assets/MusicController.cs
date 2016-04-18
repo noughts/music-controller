@@ -19,15 +19,27 @@ public class MusicController : MonoBehaviour {
 	float _prevFramePositionAtBeat;// 前のフレームの、ビート内での位置パーセンテージ 0.0~1.0
 	float _secOfBeat;
 	float _currentPositionAtBeat;
-	LowLatencyAudioSource audioSource;
+
 
 	private int _beatCount;
 	public int beatCount { get { return _beatCount; } }
 	private float startTime;
 
+	// どのタイミングからでもアクセスできるようにlazyLoading
+	LowLatencyAudioSource __audioSource;
+	public LowLatencyAudioSource audioSource{ get{
+		if ( __audioSource == null ){
+			__audioSource = GetComponent<LowLatencyAudioSource>();
+		}
+		return __audioSource;
+	}}
+
 	// Use this for initialization
 	void Start () {
-		audioSource = GetComponent<LowLatencyAudioSource>();
+		if( audioSource.clip.loadType == AudioClipLoadType.Streaming ){
+			Debug.LogError ("音声ファイルの LoadType が Streaming だと、再生位置の取得結果がぶれます。Streaming以外にしましょう。");
+			return;
+		}
 	}
 
 
