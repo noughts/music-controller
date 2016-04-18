@@ -1,3 +1,4 @@
+*.meta
 ProjectSettings/
 *.sln
 *.userprefs

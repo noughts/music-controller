@@ -69,6 +69,10 @@ public class MusicController : MonoBehaviour {
 
 	#region Public
 
+	public void stop(){
+		
+	}
+
 	public void play(){
 		startTime = Time.time;
 		_beatCount = 0;
