@@ -3,5 +3,6 @@ ProjectSettings/
 *.userprefs
 *.csproj
 Assets/example/
+Assets/StreamingAssets/
 Assets/node_modules/
 Assets/package.json
