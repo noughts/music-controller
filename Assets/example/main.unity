@@ -385,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1176798046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5f15d836a0144a1b72a264e8ff461a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loop: 0
-  playOnAwake: 1
+  loop: 1
+  playOnAwake: 0
   clip: {fileID: 8300000, guid: 9134ef6f67f8941cd9e89996bfc555bd, type: 3}
 --- !u!4 &1176798048
 Transform:
