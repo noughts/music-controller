@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempo: 130
-  useSystemTimer: 1
+  useSystemTimer: 0
 --- !u!114 &1176798047
 MonoBehaviour:
   m_ObjectHideFlags: 0
