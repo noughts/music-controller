@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loop: 1
   playOnAwake: 0
+  forceUnitySoundSystem: 1
   clip: {fileID: 8300000, guid: 494520878d7844d8d9f5200fcbae7706, type: 3}
 --- !u!4 &1176798048
 Transform:
