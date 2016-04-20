@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
@@ -20,7 +20,7 @@ public class MusicController : MonoBehaviour {
 
 	float _prevFramePositionAtBeat;// 前のフレームの、ビート内での位置パーセンテージ 0.0~1.0
 	float _secOfBeat;
-	float _currentPositionAtBeat;
+	float _currentPositionAtBeat = 0;
 
 
 	private int _beatCount;
@@ -36,7 +36,7 @@ public class MusicController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if( atomSource.IsPaused() ){
+		if( _secOfBeat == 0 ){
 			return;
 		}
 		_currentPositionAtBeat = (getCurrentTime () % _secOfBeat) / _secOfBeat;
@@ -68,7 +68,7 @@ public class MusicController : MonoBehaviour {
 		startTime = Time.time;
 		_beatCount = 0;
 		_secOfBeat = 60f / tempo;
-		_prevFramePositionAtBeat = 9999;// スタート直後にonBeatChangedEventが発生するように設定
+		_prevFramePositionAtBeat = 0;// スタート直後にonBeatChangedEventが発生するように設定
 		atomSource.Play ();
 	}
 
