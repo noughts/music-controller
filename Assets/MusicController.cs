@@ -3,11 +3,13 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(LowLatencyAudioSource))]
+[RequireComponent(typeof(CriAtomSource))]
 public class MusicController : MonoBehaviour {
 
 	public readonly UnityEvent onBeatChangedEvent = new UnityEvent();// ビートが変わったタイミングのイベント
 	public readonly UnityEvent onMiddleOfBeatEvent = new UnityEvent();// ビートの中心に来たタイミングのイベント
+
+	public CriAtomSource atomSource;
 
 	[Tooltip("音楽のテンポを調べて入力してください")]
 	public int tempo = 120;
@@ -25,27 +27,16 @@ public class MusicController : MonoBehaviour {
 	public int beatCount { get { return _beatCount; } }
 	private float startTime;
 
-	// どのタイミングからでもアクセスできるようにlazyLoading
-	LowLatencyAudioSource __audioSource;
-	public LowLatencyAudioSource audioSource{ get{
-		if ( __audioSource == null ){
-			__audioSource = GetComponent<LowLatencyAudioSource>();
-		}
-		return __audioSource;
-	}}
 
 	// Use this for initialization
 	void Start () {
-		if( audioSource.clip.loadType == AudioClipLoadType.Streaming ){
-			Debug.LogError ("音声ファイルの LoadType が Streaming だと、再生位置の取得結果がぶれます。Streaming以外にしましょう。");
-			return;
-		}
+
 	}
 
 
 	// Update is called once per frame
 	void Update () {
-		if( audioSource.isPlaying == false ){
+		if( atomSource.IsPaused() ){
 			return;
 		}
 		_currentPositionAtBeat = (getCurrentTime () % _secOfBeat) / _secOfBeat;
@@ -70,7 +61,7 @@ public class MusicController : MonoBehaviour {
 	#region Public
 
 	public void stop(){
-		audioSource.Stop ();
+		atomSource.Stop ();
 	}
 
 	public void play(){
@@ -78,7 +69,7 @@ public class MusicController : MonoBehaviour {
 		_beatCount = 0;
 		_secOfBeat = 60f / tempo;
 		_prevFramePositionAtBeat = 9999;// スタート直後にonBeatChangedEventが発生するように設定
-		audioSource.Play ();
+		atomSource.Play ();
 	}
 
 	/// 1beatの長さを秒で返す
@@ -131,7 +122,7 @@ public class MusicController : MonoBehaviour {
 		if( useSystemTimer ){
 			return Time.time - startTime;
 		} else {
-			return audioSource.time;
+			return atomSource.time / 1000f;
 		}
 
 	}
