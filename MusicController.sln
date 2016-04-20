@@ -1,7 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{E8F032A1-B5E5-2125-7863-7AB2DDF96F73}") = "MusicController", "Assembly-CSharp-firstpass.csproj", "{9E571665-22CB-2296-EC4F-A0DDBE286293}"
+EndProject
 Project("{E8F032A1-B5E5-2125-7863-7AB2DDF96F73}") = "MusicController", "Assembly-CSharp.csproj", "{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}"
+EndProject
+Project("{E8F032A1-B5E5-2125-7863-7AB2DDF96F73}") = "MusicController", "Assembly-CSharp-Editor.csproj", "{6F3BB919-E8C5-2E0E-2326-9A44E477426F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E571665-22CB-2296-EC4F-A0DDBE286293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E571665-22CB-2296-EC4F-A0DDBE286293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E571665-22CB-2296-EC4F-A0DDBE286293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E571665-22CB-2296-EC4F-A0DDBE286293}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8CA456F-A3F3-73F4-0AEA-32B2473B3195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F3BB919-E8C5-2E0E-2326-9A44E477426F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F3BB919-E8C5-2E0E-2326-9A44E477426F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F3BB919-E8C5-2E0E-2326-9A44E477426F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F3BB919-E8C5-2E0E-2326-9A44E477426F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
