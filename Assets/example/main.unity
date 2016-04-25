@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atomSource: {fileID: 1176798047}
-  tempo: 177
+  tempo: 120
   useSystemTimer: 0
 --- !u!114 &1176798047
 MonoBehaviour:
@@ -587,10 +587,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playOnStart: 0
-  _cueName: gameBGM
-  _cueSheet: TutorialCueSheet
+  _cueName: clicks
+  _cueSheet: sheet
   _use3dPositioning: 0
-  _loop: 0
+  _loop: 1
   _volume: 1
   _pitch: 0
   _androidUseLowLatencyVoicePool: 1
@@ -634,11 +634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f529aa944b914449d62b8c40f188fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acfFile: TutorialProject.acf
+  acfFile: atomProject.acf
   cueSheets:
-  - name: TutorialCueSheet
-    acbFile: TutorialCueSheet.acb
-    awbFile: 
+  - name: sheet
+    acbFile: sheet.acb
+    awbFile: sheet.awb
   dspBusSetting: 
   dontDestroyOnLoad: 0
   dontRemoveExistsCueSheet: 0
