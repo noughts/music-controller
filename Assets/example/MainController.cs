@@ -16,8 +16,6 @@ public class MainController : MonoBehaviour {
 		uint latency = 0;
 		while(true){
 			CriAtomExLatencyEstimator.EstimatorInfo info = CriAtomExLatencyEstimator.GetCurrentInfo ();
-//			print (info.status);
-//			print (info.estimated_latency);
 			if( info.status.Equals (CriAtomExLatencyEstimator.Status.Done) ){
 				latency = info.estimated_latency;
 				break;
