@@ -28,9 +28,9 @@ public class MusicController : MonoBehaviour {
 	private float startTime;
 
 
+
 	// Use this for initialization
 	void Start () {
-
 	}
 
 
