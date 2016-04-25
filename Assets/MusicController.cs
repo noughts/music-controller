@@ -6,6 +6,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CriAtomSource))]
 public class MusicController : MonoBehaviour {
 
+	/// adx2で推測したデバイスの音声遅延 in ms
+	static public uint deviceLatency = 0;
+
 	public readonly UnityEvent onBeatChangedEvent = new UnityEvent();// ビートが変わったタイミングのイベント
 	public readonly UnityEvent onMiddleOfBeatEvent = new UnityEvent();// ビートの中心に来たタイミングのイベント
 
@@ -122,7 +125,11 @@ public class MusicController : MonoBehaviour {
 		if( useSystemTimer ){
 			return Time.time - startTime;
 		} else {
-			return atomSource.time / 1000f;
+			long fixedTime = atomSource.time - deviceLatency;
+			if( fixedTime < 0 ){
+				fixedTime = 0;
+			}
+			return fixedTime / 1000f;
 		}
 
 	}
